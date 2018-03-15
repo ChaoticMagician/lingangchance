@@ -1,2 +1,0 @@
-webpackJsonp([7],{SNlK:function(e,t){},z3nk:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var a={name:"404",components:{elHead:n("WW6J").a}},r={render:function(){var e=this.$createElement,t=this._self._c||e;return t("div",[t("el-head"),this._v(" "),t("h1",[this._v("找不到页面啦")])],1)},staticRenderFns:[]};var s=n("Z0/y")(a,r,!1,function(e){n("SNlK")},"data-v-59180e76",null);t.default=s.exports}});
-//# sourceMappingURL=7.4cd2ae940992432402bf.js.map
