@@ -1,0 +1,2 @@
+webpackJsonp([8],{"953b":function(t,e){},CaFr:function(t,e,r){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var n={render:function(){var t=this.$createElement,e=this._self._c||t;return e("div",[e("h1",[this._v("majorProject")]),this._v(" "),e("router-link",{attrs:{to:"/major-project/1"}},[this._v("first")])],1)},staticRenderFns:[]};var a=r("Z0/y")({name:"all"},n,!1,function(t){r("953b")},"data-v-0bbd71e8",null);e.default=a.exports}});
+//# sourceMappingURL=8.41ebaa48839d11c64bce.js.map
