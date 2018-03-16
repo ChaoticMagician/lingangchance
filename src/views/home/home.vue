@@ -1,24 +1,17 @@
 <template>
   <div>
     <el-row>
-      <el-col :span="13">
-        <el-card :body-style="{ padding: '5px'}">
-          <div class="lg-frame">
-              <photochere></photochere>
-            <!-- <img src="../../assets/img/temp/lingang1.jpg" class="lg-img"> -->
-          </div>
-        </el-card>
-      </el-col>
-      <el-col :span="11">
-        <div style="margin-left: 20px">
+      <el-col :span="4">
+        <div style="margin-left: 0px">
         <el-card :body-style="{ padding: '5px'}">
           <div>
+
           <el-row class="right-card">
-            <el-col :span="8" v-for="(project, index) in projectCates"
+            <el-col :span="24" v-for="(project, index) in projectCates"
                     :key="index" :offset="index % 3 === 0  ? 0 : 0">
-              <el-card :body-style="{ padding: '20px', 'background-color': project.styleObj.backgroundColor}"
-                       :style="{'margin-top': index >= 3 ? '15px' : '0px',
-                       'margin-right': (index+1) % 3 === 0 ? '0px' : '15px'}"
+              <el-card 
+                      :body-style="{ padding: '20px', 'background-color': project.styleObj.backgroundColor}"
+                      :style="{'margin-top': index >= 1 ? '15px' : '0px','margin-right': (index+1) % 1 === 0 ? '0px' : '15px'}"
               >
                 <router-link :to="project.nextUrl">
                 <el-row>
@@ -40,45 +33,56 @@
               </el-card>
             </el-col>
           </el-row>
+
           </div>
         </el-card>
         </div>
       </el-col>
+      <el-col :span="20">
+        <el-card :body-style="{ padding: '5px'}">
+          <div class="lg-frame">
+              <photochere></photochere>
+            <!-- <img src="../../assets/img/temp/lingang1.jpg" class="lg-img"> -->
+          </div>
+        </el-card>
+
+          <el-card class="box-card" style="margin-top: 15px;">
+            <div slot="header" class="clearfix">
+              <i class="el-icon-menu main-p-icon" ></i>
+              <span class="main-p-text">重点项目</span>
+              <div style="float: right">
+                <span class="main-p-text2">更多</span>
+                <i class="el-icon-more main-p-icon"></i>
+              </div>
+            </div>
+
+            <el-table id="my-tb"
+              :data="projectDatasTemp"
+              stripe
+              style="width:100%;" >
+              <el-table-column v-for="(item, index) in projectTable" :key="index"
+                :prop="item.key"
+                :label="item.label" :width="item.width">
+              </el-table-column>
+            </el-table>
+          </el-card>
+
+          <el-card class="box-card" style="margin-top: 15px;">
+            <div slot="header" class="clearfix">
+              <!--<span class="glyphicon glyphicon-stats stats-icon" aria-hidden="true"></span>-->
+              <icon name="signal" class="chart-icon"></icon>
+              <span class="main-p-text">统计分析</span>
+
+              <el-button class="stats-button"  type="primary">详细统计</el-button>
+            </div>
+            <div v-for="o in 4" :key="o" class="text item">
+              {{'统计分析面板' + o }}
+            </div>
+          </el-card>
+
+      </el-col>
     </el-row>
 
-    <el-card class="box-card" style="margin-top: 15px;">
-      <div slot="header" class="clearfix">
-        <i class="el-icon-menu main-p-icon" ></i>
-        <span class="main-p-text">重点项目</span>
-        <div style="float: right">
-          <span class="main-p-text2">更多</span>
-          <i class="el-icon-more main-p-icon"></i>
-        </div>
-      </div>
-
-      <el-table id="my-tb"
-        :data="projectDatasTemp"
-        stripe
-        style="width:100%;" >
-        <el-table-column v-for="(item, index) in projectTable" :key="index"
-          :prop="item.key"
-          :label="item.label" :width="item.width">
-        </el-table-column>
-      </el-table>
-    </el-card>
-
-    <el-card class="box-card" style="margin-top: 15px;">
-      <div slot="header" class="clearfix">
-        <!--<span class="glyphicon glyphicon-stats stats-icon" aria-hidden="true"></span>-->
-        <icon name="signal" class="chart-icon"></icon>
-        <span class="main-p-text">统计分析</span>
-
-        <el-button class="stats-button"  type="primary">详细统计</el-button>
-      </div>
-      <div v-for="o in 4" :key="o" class="text item">
-        {{'统计分析面板' + o }}
-      </div>
-    </el-card>
   </div>
 </template>
 
@@ -212,8 +216,10 @@
 
 <style scoped>
   .lg-frame{
-    /* width: 850px;
+    /* width: 989px;
     height: 270px; */
+    width: 100%;
+    height: 270px;
   }
   .right-card{
     height: 270px;

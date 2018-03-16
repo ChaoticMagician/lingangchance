@@ -35,4 +35,7 @@
 <style scoped>
 .content {
 }
+.el-main{
+  padding: 15px 15px 0 15px;
+}
 </style>

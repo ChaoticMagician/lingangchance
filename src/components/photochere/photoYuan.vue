@@ -1,21 +1,23 @@
 <template>
   <div class="slide-show" @mouseover="clearInv" @mouseout="runInv">
     <div class="slide-img">
-      <!-- <a :href="slides[nowIndex].href"> -->
+      <router-link 
+      tag="a"
+      :to="{path: slides[nowIndex].href}">
         <transition name="slide-trans">
           <img v-if="isShow" :src="slides[nowIndex].src">
         </transition>
         <transition name="slide-trans-old">
           <img v-if="!isShow" :src="slides[nowIndex].src">
         </transition>
-      <!-- </a> -->
+      </router-link>
     </div>
     <h2>{{ slides[nowIndex].title }}
     <ul class="slide-pages">
       <li @click="goto(prevIndex)">&lt;</li>
-      <li v-for="(item, index) in slides"
+      <li v-for="(item,index) in slides"
       @click="goto(index)"
-      :key="item"
+      :key="index"
       >
         <a :class="{on: index === nowIndex}">{{ index + 1 }}</a>
       </li>
@@ -97,19 +99,19 @@ export default {
 
 <style scoped>
 .slide-trans-enter-active {
-  transition: all .5s;
+  transition: all .7s;
 }
 .slide-trans-enter {
-  transform: translateX(989px);
+  transform: translateX(100%);
 }
 .slide-trans-old-leave-active {
-  transition: all .5s;
-  transform: translateX(-989px);
+  transition: all .7s;
+  transform: translateX(-100%);
 }
 .slide-show {
   position: relative;
-  width:  989px;
-  height: 270px;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
 }
 .slide-show h2 {
@@ -121,7 +123,7 @@ export default {
   /* background: #000; */
   opacity: .5;
   bottom: 0;
-  height: 30px;
+  height: 10%;
   text-align: left;
   padding-left: 15px;
 }
@@ -134,18 +136,19 @@ export default {
   background: #000;
   opacity: .5;
   bottom: 0;
-  height: 30px;
+  height: 10%;
   text-align: left;
   padding-left: 15px;
 }
 .slide-img {
   width: 100%;
+  height: 100%;
 }
 .slide-img img {
   width: 100%;
   height: 100%;
-  position: absolute;
   top: 0;
+  position: absolute;
 }
 .slide-pages {
   position: absolute;

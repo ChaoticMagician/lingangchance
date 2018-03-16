@@ -5,10 +5,10 @@
       </base-head>
     </div>
     <el-container>
-      <el-main>
+      <el-main class="content-main" >
         <div class="content">
           <el-card>
-            <div slot="header">
+            <!-- <div slot="header">
               <el-row>
                 <el-col :span="22">
                   <el-breadcrumb separator=">">
@@ -20,11 +20,11 @@
                   </el-breadcrumb>
                 </el-col>
                 <el-col :span="2">
-                  <!--<span>返回上一级</span>-->
+                  <span>返回上一级</span>
                 </el-col>
               </el-row>
 
-            </div>
+            </div> -->
             <router-view></router-view>
 
           </el-card>
@@ -61,5 +61,8 @@
 <style scoped>
 .content {
   /*margin-top: 1%;*/
+}
+.content-main{
+  padding: 0;
 }
 </style>

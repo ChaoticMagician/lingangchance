@@ -35,7 +35,7 @@
           </el-col>
           <el-col :span="3">
             <div>
-              <img src="https://chengfy.com/_uploads/files/staneyffer.jpg" class="user-img"/>
+              <img src="../../assets/img/temp/login/staneyffer.jpg" class="user-img"/>
             </div>
           </el-col>
           <el-col :span="5">
