@@ -3,19 +3,22 @@
     <el-row>
       <el-col :span="4">
         <div style="margin-left: 0px">
-        <el-card :body-style="{ padding: '5px'}">
+        <el-card :body-style="{ height:'850px',padding: '5px','background-color': '#545c64'}">
           <div>
 
-          <el-row class="right-card">
+          <el-row class="right-card" >
             <el-col :span="24" v-for="(project, index) in projectCates"
                     :key="index" :offset="index % 3 === 0  ? 0 : 0">
               <el-card 
-                      :body-style="{ padding: '20px', 'background-color': project.styleObj.backgroundColor}"
-                      :style="{'margin-top': index >= 1 ? '15px' : '0px','margin-right': (index+1) % 1 === 0 ? '0px' : '15px'}"
+                      :body-style="{ padding: '0','padding-left': '37%'}"
+                      :style="{'margin-top': index = 1 ? '15px' : '0px','margin-right': (index+1) % 1 === 0 ? '0px' : '15px',border:'0',height:'56px',lineHeight: '56px'}"
+                      class="right-card-butter"
               >
                 <router-link :to="project.nextUrl">
-                <el-row>
-                  <el-col :span="10">
+                  <i class="el-icon-menu p-cate-img"></i>
+                  <span class="p-cate-item-name">{{ project.name }}</span>
+
+                  <!-- <el-col :span="10">
                     <img :src="project.imgUrl" class="p-cate-img">
                   </el-col>
                   <el-col :span="14" class="p-cate">
@@ -27,8 +30,7 @@
                         <span class="p-cate-item-name">{{ project.name }}</span>
                       </div>
                     </div>
-                  </el-col>
-                </el-row>
+                  </el-col> -->
                 </router-link>
               </el-card>
             </el-col>
@@ -39,14 +41,14 @@
         </div>
       </el-col>
       <el-col :span="20">
-        <el-card :body-style="{ padding: '5px'}">
+        <!-- <el-card :body-style="{ padding: '5px'}">
           <div class="lg-frame">
               <photochere></photochere>
-            <!-- <img src="../../assets/img/temp/lingang1.jpg" class="lg-img"> -->
+            <img src="../../assets/img/temp/lingang1.jpg" class="lg-img">
           </div>
-        </el-card>
+        </el-card> -->
 
-          <el-card class="box-card" style="margin-top: 15px;">
+          <el-card class="box-card" >
             <div slot="header" class="clearfix">
               <i class="el-icon-menu main-p-icon" ></i>
               <span class="main-p-text">重点项目</span>
@@ -67,9 +69,9 @@
             </el-table>
           </el-card>
 
-          <el-card class="box-card" style="margin-top: 15px;">
+          <!-- <el-card class="box-card" style="margin-top: 15px;">
             <div slot="header" class="clearfix">
-              <!--<span class="glyphicon glyphicon-stats stats-icon" aria-hidden="true"></span>-->
+            
               <icon name="signal" class="chart-icon"></icon>
               <span class="main-p-text">统计分析</span>
 
@@ -78,7 +80,7 @@
             <div v-for="o in 4" :key="o" class="text item">
               {{'统计分析面板' + o }}
             </div>
-          </el-card>
+          </el-card> -->
 
       </el-col>
     </el-row>
@@ -88,7 +90,6 @@
 
 <script>
   import {mapActions} from 'vuex'
-  // import photochere from '@/components/photochere/photochere.vue'
   import photochere from '@/components/photochere/photoYuan.vue'
   export default {
     name: 'home',
@@ -195,7 +196,7 @@
     computed: {
       projectDatasTemp: function () {
         let temp = []
-        for (var i = 0; i < 4; i++) {
+        for (let i = 0; i < 15; i++) {
           let p = this.projectDatas[0]
           p.id = (i + 1)
           temp.push(p)
@@ -222,13 +223,14 @@
     height: 270px;
   }
   .right-card{
-    height: 270px;
+    height: 850px;
   }
   .p-cate{
     height: 85px;
   }
   .p-cate-img{
-    margin-top: 0px;
+    color: #878d99;
+    font-size: 18px;
   }
   .p-cate-item{
     /*margin-top: 30px;*/
@@ -238,7 +240,7 @@
     color: white;
   }
   .p-cate-item-name{
-    font-size: 20px;
+    font-size: 14px;
     color: white;
   }
   .main-p-icon{
@@ -275,5 +277,20 @@
     padding: 3px 0;
     color: #ffff;
     background-color: #4988D1
+  }
+  .box-card{
+    margin-left: 1em;
+  }
+  #my-tb{
+    height: 760px;
+  }
+  .el-table-column{
+
+  }
+  .right-card-butter{
+    background-color: #545c64;
+  }
+  .right-card-butter:hover{
+     background: rgb(67,74,80);
   }
 </style>

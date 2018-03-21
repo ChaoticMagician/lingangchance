@@ -1,8 +1,8 @@
 <template>
   <div>
     <div>
-      <base-head>
-      </base-head>
+      <!-- <base-head>
+      </base-head> -->
     </div>
     <el-container>
       <el-main>
@@ -36,6 +36,6 @@
 .content {
 }
 .el-main{
-  padding: 15px 15px 0 15px;
+  padding: 0;
 }
 </style>

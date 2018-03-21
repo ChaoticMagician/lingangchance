@@ -1,14 +1,14 @@
 <template>
   <div>
     <div>
-      <base-head>
-      </base-head>
+      <!-- <base-head>
+      </base-head> -->
     </div>
     <el-container>
       <el-main class="content-main" >
         <div class="content">
           <el-card>
-            <!-- <div slot="header">
+            <div slot="header">
               <el-row>
                 <el-col :span="22">
                   <el-breadcrumb separator=">">
@@ -24,7 +24,7 @@
                 </el-col>
               </el-row>
 
-            </div> -->
+            </div>
             <router-view></router-view>
 
           </el-card>
