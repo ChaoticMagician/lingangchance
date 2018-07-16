@@ -9,15 +9,15 @@
           <el-row class="right-card" >
             <el-col :span="24" v-for="(project, index) in projectCates"
                     :key="index" :offset="index % 3 === 0  ? 0 : 0">
+              <router-link    :to="{path:index >1? null:project.nextUrl}"  :style="{textDecoration:'none'}">
               <el-card 
                       :body-style="{ padding: '0','padding-left': '37%'}"
-                      :style="{'margin-top': index = 1 ? '15px' : '0px','margin-right': (index+1) % 1 === 0 ? '0px' : '15px',border:'0',height:'56px',lineHeight: '56px'}"
+                      :style="{'margin-top': index = 0 ? '15px' : '0px',border:'0',height:'56px',lineHeight: '56px'}"
                       class="right-card-butter"
               >
-                <router-link :to="project.nextUrl">
                   <i class="el-icon-menu p-cate-img"></i>
-                  <span class="p-cate-item-name">{{ project.name }}</span>
-
+                  <span :style="{color: project.isactive ? 'white':'rgb(136, 135, 135)',fontSize:'14px'}">
+                    {{ project.name }}</span>
                   <!-- <el-col :span="10">
                     <img :src="project.imgUrl" class="p-cate-img">
                   </el-col>
@@ -31,8 +31,8 @@
                       </div>
                     </div>
                   </el-col> -->
-                </router-link>
               </el-card>
+              </router-link>
             </el-col>
           </el-row>
 
@@ -104,7 +104,8 @@
             styleObj: {
               backgroundColor: '#4C9EDA'
             },
-            nextUrl: '/project'
+            nextUrl: '/a/project',
+            isactive: true
           },
           {
             name: '招投标备案',
@@ -113,7 +114,8 @@
             styleObj: {
               backgroundColor: '#8DB866'
             },
-            nextUrl: '/bid'
+            nextUrl: '/a/bid',
+            isactive: true
           },
           {
             name: '合同备案',
@@ -122,7 +124,8 @@
             styleObj: {
               backgroundColor: '#C1AA76'
             },
-            nextUrl: '/project'
+            nextUrl: '/project',
+            isactive: false
           },
           {
             name: '建设过程管理',
@@ -131,7 +134,8 @@
             styleObj: {
               backgroundColor: '#66B7BA'
             },
-            nextUrl: '/project'
+            nextUrl: '/project',
+            isactive: false
           },
           {
             name: '竣工备案',
@@ -140,7 +144,8 @@
             styleObj: {
               backgroundColor: '#7799D9'
             },
-            nextUrl: '/project'
+            nextUrl: '/project',
+            isactive: false
           },
           {
             name: '查询统计',
@@ -149,7 +154,8 @@
             styleObj: {
               backgroundColor: '#E6858E'
             },
-            nextUrl: '/project'
+            nextUrl: '/project',
+            isactive: false
           }
         ],
         projectTable: [
@@ -235,13 +241,9 @@
   .p-cate-item{
     /*margin-top: 30px;*/
   }
-  .p-cate-item-count{
-    font-size: 35px;
-    color: white;
-  }
-  .p-cate-item-name{
+  .p-cate-item-nameact{
     font-size: 14px;
-    color: white;
+    color: rgb(95, 95, 95);
   }
   .main-p-icon{
     font-size: 22px;

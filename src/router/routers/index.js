@@ -11,7 +11,7 @@ import {notFind} from './error'
 
 export default[
   {
-    path: '/',
+    path: '/a/',
     component: mainBase,
     children: [
       majorProject,
@@ -22,7 +22,7 @@ export default[
     ]
   },
   {
-    path: '/index',
+    path: '/',
     component: base,
     children: [
       home,

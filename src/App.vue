@@ -6,6 +6,9 @@
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  created () {
+    // this.$router.push('/index')
+  }
 }
 </script>
